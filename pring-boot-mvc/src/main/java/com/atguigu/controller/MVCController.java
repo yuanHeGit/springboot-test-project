@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class MVCController {
 
-    @GetMapping("/index")
+    @GetMapping("/account")
     public String toIndexPage(Model model){
         model.addAttribute("Account","account");
         return "list";

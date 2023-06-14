@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>账户列表页面</title>
-  <link type="text/css" rel="stylesheet" href="/static/css/demo.css"/>
-  <script src="/static/js/vue.js"></script>
-  <script src="/static/js/axios.js"></script>
+  <link type="text/css" rel="stylesheet" href="/demo.css"/>
+  <script src="/vue.js"></script>
+  <script src="/axios.js"></script>
 </head>
 <body>
 
@@ -24,8 +24,8 @@
     <tr v-for="(account,index) in accountList">
       <td v-text="index + 1"></td>
       <td v-text="account.accountName"></td>
-      <td v-text="account.money"></td>
-      <td v-text="account.address"></td>
+      <td v-text="account.salary"></td>
+      <td v-text="account.departmentId"></td>
       <td>
         <a :href="'/update.html?accountId='+account.accountId">修改</a>
         <a @click.prevent="deleteAccount(account.accountId)">删除</a>
@@ -48,7 +48,7 @@
       findAllAccountList(){
         //发送异步请求，获取账户列表
         axios({
-          url:"/account",
+          url:"/index/data",
           method:"get"
         }).then(response => {
           //判断是否查询成功
