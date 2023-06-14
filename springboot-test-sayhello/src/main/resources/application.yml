@@ -1,0 +1,8 @@
+atguigu:
+  teaId: 66
+  teaName: jack
+  subjectList:
+    - Java
+    - python
+    - c#
+    - C++
