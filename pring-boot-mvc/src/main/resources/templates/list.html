@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>账户列表页面</title>
+  <link type="text/css" rel="stylesheet" href="/static/css/demo.css"/>
+  <script src="/static/js/vue.js"></script>
+  <script src="/static/js/axios.js"></script>
+</head>
+<body>
+
+<h1 th:text="${Account}"></h1>
+
+<div id="app">
+  <table>
+    <tr>
+      <th>序号</th>
+      <th>账户名</th>
+      <th>账户金额</th>
+      <th>地址</th>
+      <th>操作</th>
+    </tr>
+
+    <tr v-for="(account,index) in accountList">
+      <td v-text="index + 1"></td>
+      <td v-text="account.accountName"></td>
+      <td v-text="account.money"></td>
+      <td v-text="account.address"></td>
+      <td>
+        <a :href="'/update.html?accountId='+account.accountId">修改</a>
+        <a @click.prevent="deleteAccount(account.accountId)">删除</a>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <a href="/add.html">添加账户</a>
+      </td>
+    </tr>
+  </table>
+</div>
+<script>
+  new Vue({
+    el:"#app",
+    data:{
+      accountList:[]
+    },
+    methods: {
+      findAllAccountList(){
+        //发送异步请求，获取账户列表
+        axios({
+          url:"/account",
+          method:"get"
+        }).then(response => {
+          //判断是否查询成功
+          if (response.data.code == 200) {
+            this.accountList = response.data.result
+          }else {
+            location.href = "/error-500.html"
+          }
+        })
+      },
+      deleteAccount(accountId){
+        //发送异步请求，删除账户
+        axios({
+          method:"DELETE",
+          url:"/account/"+accountId
+        }).then(response => {
+          //判断是否删除成功
+          if(response.data.code == 200) {
+            //如果删除成功，则重新查询账户列表
+            this.findAllAccountList()
+          }else {
+            location.href = "/error-500.html"
+          }
+        })
+      }
+    },
+    //钩子函数，在Vue实例创建完成后自动调用
+    created(){
+      this.findAllAccountList()
+    }
+  })
+</script>
+</body>
+</html>

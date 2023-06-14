@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+    <h3>首页</h3>
+
+    <p th:text="${Account}"></p>
+
+    <img th:src="@{/mi.jpg}" />
+
+    <br/>
+
+    <a th:href="@{/friend}">测试拦截器 /friend</a><br/>
+    <a th:href="@{/apple}">测试拦截器 /apple</a><br/>
+    <a th:href="@{/apple/aaa}">测试拦截器 /apple/aaa</a><br/>
+    <a th:href="@{/apple/aaa/bbb}">测试拦截器 /apple/aaa/bbb</a><br/>
+    <a th:href="@{/apple/aaa/bbb/ccc}">测试拦截器 /apple/aaa/bbb/ccc</a>
+
+</body>
+</html>

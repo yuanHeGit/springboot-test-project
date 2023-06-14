@@ -1,0 +1,59 @@
+/* 表格样式 */
+table {
+    width: auto;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* 表单样式 */
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* 输入框样式 */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 8px;
+    margin: 2px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+    border-radius: 5px; /* 添加圆角样式 */
+}
+
+/* a标签样式 */
+a {
+    color: #008CBA;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4CAF50;
+}
