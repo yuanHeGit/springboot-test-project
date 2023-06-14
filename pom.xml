@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>springboot-test-sayhello</module>
+        <module>pring-boot-mvc</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
